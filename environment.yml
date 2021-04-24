@@ -5,9 +5,10 @@ channels:
 dependencies:
   - _libgcc_mutex=0.1=conda_forge
   - _openmp_mutex=4.5=1_gnu
+  - autopep8=1.5.6=pyhd3eb1b0_0
   - bzip2=1.0.8=h7f98852_4
-  - ca-certificates=2020.12.5=ha878542_0
-  - certifi=2020.12.5=py38h578d9bd_1
+  - ca-certificates=2021.4.13=h06a4308_1
+  - certifi=2020.12.5=py38h06a4308_0
   - ffmpeg=4.3.1=hca11adc_2
   - freetype=2.10.4=h0708190_1
   - gettext=0.19.8.1=h0b5b191_1005
@@ -28,14 +29,16 @@ dependencies:
   - ncurses=6.2=h58526e2_4
   - nettle=3.6=he412f7d_0
   - openh264=2.1.1=h780b84a_0
-  - openssl=1.1.1k=h7f98852_0
+  - openssl=1.1.1k=h27cfd23_0
   - pip=21.1=pyhd8ed1ab_0
+  - pycodestyle=2.7.0=pyhd3eb1b0_0
   - python=3.8.8=hffdb5ce_0_cpython
   - python_abi=3.8=1_cp38
   - readline=8.1=h46c0cb4_0
   - setuptools=49.6.0=py38h578d9bd_3
   - sqlite=3.35.5=h74cdb3f_0
   - tk=8.6.10=h21135ba_1
+  - toml=0.10.2=pyhd3eb1b0_0
   - wheel=0.36.2=pyhd3deb0d_0
   - x264=1!161.3030=h7f98852_0
   - xz=5.2.5=h516909a_1
@@ -107,3 +110,4 @@ dependencies:
     - werkzeug==1.0.1
     - wrapt==1.12.1
     - youtube-dl==2021.4.17
+    - youtube-search==2.1.0
