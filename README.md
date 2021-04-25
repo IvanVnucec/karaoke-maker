@@ -7,7 +7,8 @@ App that will search and download a video from Youtube, remove vocals and export
 3. Activate created environment.
 
 ## Instructions
-Create karaoke songs by function `python3 karaoke-maker.py <song name or lyrics>`. Below are few examples:
+Create karaoke songs by calling `python3 karaoke-maker.py <song name or lyrics>`.  
+Below are few examples:
 - `python3 karaoke-maker.py Saban Saulic - Zal` 
 - `python3 karaoke-maker.py dotako sam dno zivota sad verujem u sudbinu`
 - `python3 karaoke-maker.py thompson bojna cavoglave`.  
