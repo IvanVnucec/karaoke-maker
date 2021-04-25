@@ -3,17 +3,6 @@ from youtube_dl import YoutubeDL
 from youtubesearchpython import VideosSearch
 
 
-class MyLogger(object):
-    def debug(self, msg):
-        pass
-
-    def warning(self, msg):
-        pass
-
-    def error(self, msg):
-        print(msg)
-
-
 MAX_SEARCH_RESULTS = 3
 
 YDL_OPTIONS = {
@@ -23,8 +12,7 @@ YDL_OPTIONS = {
         'key': 'FFmpegExtractAudio',
         'preferredcodec': 'mp3',
         'preferredquality': '192',
-    }],
-    'logger': MyLogger()
+    }]
 }
 
 
