@@ -2,8 +2,6 @@ from __future__ import unicode_literals
 from youtube_dl import YoutubeDL
 from youtubesearchpython import VideosSearch
 
-songFilepath = None
-
 
 class MyLogger(object):
     def debug(self, msg):
