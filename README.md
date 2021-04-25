@@ -5,10 +5,9 @@ App that will search and download a video from Youtube, remove vocals and export
 1. Install Conda package manager.
 2. Create Conda environment from .yml file `conda env create --file environment.yml`
 3. Activate created environment.
-4. Create karaoke songs. See Instructions section below for examples.
 
 ## Instructions
-It's as simple as `python3 karaoke-maker.py <song name or lyrics>`. Below are few examples:
+Create karaoke songs by function `python3 karaoke-maker.py <song name or lyrics>`. Below are few examples:
 - `python3 karaoke-maker.py Saban Saulic - Zal` 
 - `python3 karaoke-maker.py dotako sam dno zivota sad verujem u sudbinu`
 - `python3 karaoke-maker.py thompson bojna cavoglave`.  
