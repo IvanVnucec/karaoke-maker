@@ -1,77 +1,36 @@
-from __future__ import unicode_literals
-import youtube_dl
-from youtube_search import YoutubeSearch
 import sys
-import os
+from youtube import Youtube
+from filter import Filter
 
-
-MAX_SEARCH_RESULTS = 3
 OUTPUT_FOLDER_PATH = 'download'
-
-songFilepath = None
-
-
-class MyLogger(object):
-    def debug(self, msg):
-        pass
-
-    def warning(self, msg):
-        pass
-
-    def error(self, msg):
-        print(msg)
-
-
-def progress_hook(msg):
-    global songFilepath
-
-    if msg['status'] == 'finished':
-        songFilepath = msg['filename'].split('.')[0] + '.mp3'
-        print('Converting to mp3')
 
 
 def main():
+    # get search args
     if len(sys.argv) < 2:
         sys.exit('Too few arguments.')
-
     search = ' '.join(sys.argv[1:])
 
-    print(f'Searching for "{search}".')
-    results = YoutubeSearch(search, max_results=MAX_SEARCH_RESULTS).to_dict()
-    songs = []
-    print('Done. Found:')
-    for result in results:
-        title = result['title']
-        views = int(result['views'].split(' ')[0].replace('.', ''))
-        link = 'https://www.youtube.com/watch?v=' + result['id']
-        songs.append((title, link, views))
-        print(f'\t"{title}" with {views} views. Link: {link}')
+    # search youtube
+    print(f"Searching Youtube for '{search}'.")
+    youtube = Youtube()
+    songs = youtube.search(search, sortByViews=True)
 
-    songTitle, songLink, songViews = sorted(songs, key=lambda tup: tup[2])[-1]
+    # pick one with the most views
+    song = songs[0]
+    print(
+        f'Choosing "{song["title"]}" with {song["views"]} views. Link: {song["link"]}')
 
-    print(f'\nChoosing "{songTitle}" with {songViews} views. Link: {songLink}')
-
-    ydl_opts = {
-        'outtmpl': f'{OUTPUT_FOLDER_PATH}/%(title)s.%(ext)s',
-        'restrictfilenames': True,
-        'format': 'bestaudio/best',
-        'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
-            'preferredquality': '192',
-        }],
-        'logger': MyLogger(),
-        'progress_hooks': [progress_hook],
-    }
-
-    print(f'Downloading {songTitle}.')
-    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-        ydl.download([songLink])
+    # download a song from youtube
+    print('Downloading and converting to mp3.')
+    filepath = youtube.download_and_convert_to_mp3(
+        song['link'], OUTPUT_FOLDER_PATH)
 
     print('Filtering vocals.')
-    os.system(f'spleeter separate -p spleeter:2stems -o output {songFilepath}')
+    filter = Filter()
+    path = filter.extract_vocals(filepath)
+    print(f'Done. Saved to {path}.')
 
-    print('Done')
     sys.exit(0)
 
 
