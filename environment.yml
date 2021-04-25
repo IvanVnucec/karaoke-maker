@@ -110,4 +110,4 @@ dependencies:
     - werkzeug==1.0.1
     - wrapt==1.12.1
     - youtube-dl==2021.4.17
-    - youtube-search==2.1.0
+    - youtube-search-python==1.4.5

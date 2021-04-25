@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 from youtube_dl import YoutubeDL
-from youtube_search import YoutubeSearch
+from youtubesearchpython import VideosSearch
 
 songFilepath = None
 
@@ -35,13 +35,13 @@ class Youtube:
         self.songFilepath = None
 
     def search(self, keys, max_results=MAX_SEARCH_RESULTS, sortByViews=True):
-        results = YoutubeSearch(keys, max_results=max_results).to_dict()
+        results = VideosSearch(keys, limit=max_results).result()['result']
 
         songs = []
         for result in results:
             title = result['title']
-            views = int(result['views'].split(' ')[0].replace('.', ''))
-            link = 'https://www.youtube.com/watch?v=' + result['id']
+            views = int(result['viewCount']['text'].split(' ')[0].replace(',', ''))
+            link = result['link']
             songs.append(dict(title=title, link=link, views=views))
 
         if sortByViews:
