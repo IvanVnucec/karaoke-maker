@@ -12,5 +12,6 @@ It's as simple as `python3 karaoke-maker.py <song name or lyrics>`. Below are fe
 - `python3 karaoke-maker.py Saban Saulic - Zal` 
 - `python3 karaoke-maker.py dotako sam dno zivota sad verujem u sudbinu`
 - `python3 karaoke-maker.py thompson bojna cavoglave`.  
+
 Original mp3 songs are saved in `download` folder and processed karaoke songs
 are saved in the `output folder`. 
