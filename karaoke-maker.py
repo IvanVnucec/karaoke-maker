@@ -2,15 +2,11 @@ import sys
 from youtube import Youtube
 from filter import Filter
 
+MIN_ARGS_LEN = 2
 OUTPUT_FOLDER_PATH = 'download'
 
 
-def main():
-    # get search args
-    if len(sys.argv) < 2:
-        sys.exit('Too few arguments.')
-    search = ' '.join(sys.argv[1:])
-
+def main(search):
     # search youtube
     print(f"Searching Youtube for '{search}'.")
     youtube = Youtube()
@@ -35,4 +31,11 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # get search args
+    if len(sys.argv) < MIN_ARGS_LEN:
+        sys.exit('Too few arguments.')
+
+    # join list with spaces
+    search = ' '.join(sys.argv[1:])
+
+    main(search)
