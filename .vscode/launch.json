@@ -6,6 +6,7 @@
             "type": "python",
             "request": "launch",
             "program": "main.py",
+            "args": ["welcome to the candy shop"],
             "console": "integratedTerminal"
         }
     ]
