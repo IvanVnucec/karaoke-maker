@@ -1,5 +1,5 @@
 # karaoke-maker
-App that will search and download a video from Youtube, remove vocals and export it as mp3. Perfect for karaoke. :microphone:
+App will search and download Youtube video, convert it to mp3 and remove vocals. Perfect for karaoke. :microphone:
 
 ## Installation
 1. Install Conda package manager.
