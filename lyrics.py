@@ -1,6 +1,7 @@
 import googlesearch as Google
 import requests
 from bs4 import BeautifulSoup
+import os
 
 
 SITE = 'tekstovi.net'
@@ -10,16 +11,16 @@ LYRICS_TXT = 'lyrics.txt'
 
 class Lyrics:
     def __init__(self) -> None:
-        pass
+        self.link = None
 
     def __search(self, str, numRes=3):
         search = f'site:{SITE} {str}'
         return Google.search(search, numRes)[0]
 
     def get_lyrics(self, str):
-        link = self.__search(str)
+        self.link = self.__search(str)
 
-        page = requests.get(link)
+        page = requests.get(self.link)
         soup = BeautifulSoup(page.content, 'html.parser')
         author = soup.find('h1', class_='lyricCapt').text + '\n'
         songName = soup.find('h2', class_='lyricCapt').text + '\n\n'
@@ -34,7 +35,7 @@ class Lyrics:
         return retval
 
     def save(self, path, lyrics):
-        # TODO: Change path to OS independant
-        file = open(path + '/' + LYRICS_TXT, WRITE)
+        path = os.path.join(path, LYRICS_TXT)
+        file = open(path, WRITE)
         file.writelines(lyrics)
         file.close()
