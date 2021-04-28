@@ -1,6 +1,8 @@
 import os
 import shutil
 from subprocess import Popen, PIPE, STDOUT
+import numpy as np
+from scipy.io import wavfile
 
 SPLIT_PROGRAM = 'spleeter separate -p spleeter:2stems'
 OUT_FOLDER = 'spleeter'
@@ -31,8 +33,6 @@ class Filter:
     def extract_vocals(self, songPath, destDir):
         syscmd(f'{SPLIT_PROGRAM} -o {OUT_FOLDER} {songPath}')
 
-        # TODO: Convert from wav to mp3 with compression cuz wav are big
-
         # move spleeter output files to dst
         head_tail = os.path.split(songPath)
         songFilenameWoExt = head_tail[1].rsplit('.', maxsplit=1)[0]
@@ -51,4 +51,20 @@ class Filter:
 
         self.destDir = destDir
 
-        return self.destDir
+        vocals = os.path.join(destDir, 'vocals.wav')
+        instrum = os.path.join(destDir, 'instrumental.wav')
+
+        return vocals, instrum
+
+    def mix_vocals_with_instrum(self, output_folder, vocals, instrum, intensity):
+        fs1, vocals_data = wavfile.read(vocals)
+        fs2, instrum_data = wavfile.read(instrum)
+
+        assert(fs1 == fs2)
+
+        result = (intensity) * vocals_data + (1.0 - intensity) * instrum_data
+        result = result / np.ndarray.max(result)
+
+        output = os.path.join(output_folder, 'blend.wav')
+
+        wavfile.write(output, fs1, result)

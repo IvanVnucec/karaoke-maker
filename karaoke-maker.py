@@ -7,6 +7,7 @@ import os
 
 MIN_ARGS_LEN = 2
 DOWNLOAD_FOLDER = 'download'
+VOCALS_INTENSITY = 0.25
 
 
 def main(search):
@@ -28,7 +29,8 @@ def main(search):
 
     print('3. Filtering vocals. This could take a minute.')
     filter = Filter()
-    filter.extract_vocals(filepath, folder)
+    vocals, instrum = filter.extract_vocals(filepath, folder)
+    filter.mix_vocals_with_instrum(folder, vocals, instrum, VOCALS_INTENSITY)
     print(f'Done.\n')
 
     print('4. Searching for lyrics.')
