@@ -3,6 +3,7 @@ from youtube import Youtube
 from filter import Filter
 from lyrics import Lyrics
 import time
+import os
 
 MIN_ARGS_LEN = 2
 DOWNLOAD_FOLDER = 'download'
@@ -36,7 +37,8 @@ def main(search):
     lyrics.save(folder, lyricsText)
     print('Done.\n')
 
-    print(f'Output folder: {folder}')
+    absPath = os.path.abspath(folder)
+    print(f'Output folder: {absPath}')
 
 
 if __name__ == "__main__":
