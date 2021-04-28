@@ -91,6 +91,7 @@ dependencies:
   - smart_open=2.2.1=pyh9f0ad1d_0
   - spacy=3.0.6=py38hfc89cab_0
   - spacy-legacy=3.0.5=pyhd8ed1ab_0
+  - spacy-model-en_core_web_sm=3.0.0=pyhd8ed1ab_1
   - sqlite=3.35.5=h74cdb3f_0
   - srsly=2.4.1=py38h709712a_0
   - thinc=8.0.3=py38hfc89cab_1
