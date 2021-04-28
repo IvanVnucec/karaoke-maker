@@ -5,42 +5,106 @@ channels:
 dependencies:
   - _libgcc_mutex=0.1=conda_forge
   - _openmp_mutex=4.5=1_gnu
+  - aiohttp=3.7.4=py38h497a2fe_0
+  - async-timeout=3.0.1=py_1000
+  - attrs=20.3.0=pyhd3deb0d_0
   - autopep8=1.5.6=pyhd3eb1b0_0
+  - boto=2.49.0=py_0
+  - boto3=1.17.59=pyhd8ed1ab_0
+  - botocore=1.20.59=pyhd8ed1ab_1
+  - brotlipy=0.7.0=py38h497a2fe_1001
+  - bz2file=0.98=py_0
   - bzip2=1.0.8=h7f98852_4
-  - ca-certificates=2021.4.13=h06a4308_1
+  - c-ares=1.17.1=h7f98852_1
+  - ca-certificates=2020.12.5=ha878542_0
+  - catalogue=2.0.3=py38h578d9bd_0
+  - cffi=1.14.5=py38ha65f79e_0
+  - click=7.1.2=pyh9f0ad1d_0
+  - colorama=0.4.4=pyh9f0ad1d_0
+  - cryptography=3.4.7=py38ha5dfef3_0
+  - cymem=2.0.5=py38h709712a_1
+  - cython-blis=0.7.4=py38h5c078b8_0
+  - dataclasses=0.8=pyhc8e2a94_1
   - ffmpeg=4.3.1=hca11adc_2
   - freetype=2.10.4=h0708190_1
   - gettext=0.19.8.1=h0b5b191_1005
   - gmp=6.2.1=h58526e2_0
   - gnutls=3.6.13=h85f3911_1
+  - google-api-core=1.26.3=pyhd8ed1ab_0
+  - google-cloud-core=1.5.0=pyhd3deb0d_0
+  - google-cloud-storage=1.19.0=py_0
+  - google-crc32c=1.1.2=py38h8838a9a_0
+  - google-resumable-media=1.2.0=pyhd3deb0d_0
+  - googleapis-common-protos=1.53.0=py38h578d9bd_0
+  - grpcio=1.37.0=py38hdd6454d_0
+  - idna=2.10=pyh9f0ad1d_0
+  - jinja2=2.11.3=pyh44b312d_0
+  - jmespath=0.10.0=pyh9f0ad1d_0
   - lame=3.100=h7f98852_1001
   - ld_impl_linux-64=2.35.1=hea4e1c9_2
+  - libblas=3.9.0=8_openblas
+  - libcblas=3.9.0=8_openblas
+  - libcrc32c=1.1.1=h9c3ff4c_2
   - libffi=3.3=h58526e2_2
   - libflac=1.3.3=h9c3ff4c_1
   - libgcc-ng=9.3.0=h2828fa1_19
+  - libgfortran-ng=9.3.0=hff62375_19
+  - libgfortran5=9.3.0=hff62375_19
   - libgomp=9.3.0=h2828fa1_19
+  - liblapack=3.9.0=8_openblas
   - libogg=1.3.4=h7f98852_1
+  - libopenblas=0.3.12=pthreads_h4812303_1
   - libopus=1.3.1=h7f98852_1
   - libpng=1.6.37=h21135ba_2
+  - libprotobuf=3.15.8=h780b84a_0
   - libsndfile=1.0.31=h9c3ff4c_1
   - libstdcxx-ng=9.3.0=h6de172a_19
   - libvorbis=1.3.7=h9c3ff4c_0
+  - markupsafe=1.1.1=py38h497a2fe_3
+  - multidict=5.1.0=py38h497a2fe_1
+  - murmurhash=1.0.5=py38h709712a_0
   - ncurses=6.2=h58526e2_4
   - nettle=3.6=he412f7d_0
   - openh264=2.1.1=h780b84a_0
-  - openssl=1.1.1k=h27cfd23_0
+  - openssl=1.1.1k=h7f98852_0
+  - packaging=20.9=pyh44b312d_0
+  - pathy=0.5.2=pyhd8ed1ab_0
   - pip=21.1=pyhd8ed1ab_0
+  - preshed=3.0.5=py38h709712a_0
+  - pyasn1=0.4.8=py_0
   - pycodestyle=2.7.0=pyhd3eb1b0_0
+  - pycparser=2.20=pyh9f0ad1d_2
+  - pydantic=1.7.3=py38h497a2fe_1
+  - pyopenssl=20.0.1=pyhd8ed1ab_0
+  - pyparsing=2.4.7=pyh9f0ad1d_0
+  - pysocks=1.7.1=py38h578d9bd_3
   - python=3.8.8=hffdb5ce_0_cpython
+  - python-dateutil=2.8.1=py_0
   - python_abi=3.8=1_cp38
+  - pytz=2021.1=pyhd8ed1ab_0
   - readline=8.1=h46c0cb4_0
+  - rsa=4.7.2=pyh44b312d_0
+  - s3transfer=0.4.2=pyhd8ed1ab_0
   - setuptools=49.6.0=py38h578d9bd_3
+  - shellingham=1.4.0=pyh44b312d_0
+  - six=1.15.0=pyh9f0ad1d_0
+  - smart_open=2.2.1=pyh9f0ad1d_0
+  - spacy=3.0.6=py38hfc89cab_0
+  - spacy-legacy=3.0.5=pyhd8ed1ab_0
   - sqlite=3.35.5=h74cdb3f_0
+  - srsly=2.4.1=py38h709712a_0
+  - thinc=8.0.3=py38hfc89cab_1
   - tk=8.6.10=h21135ba_1
   - toml=0.10.2=pyhd3eb1b0_0
+  - tqdm=4.60.0=pyhd8ed1ab_0
+  - typer=0.3.2=pyhd8ed1ab_0
+  - typing-extensions=3.7.4.3=0
+  - typing_extensions=3.7.4.3=py_0
+  - wasabi=0.8.2=pyh44b312d_0
   - wheel=0.36.2=pyhd3deb0d_0
   - x264=1!161.3030=h7f98852_0
   - xz=5.2.5=h516909a_1
+  - yarl=1.6.3=py38h497a2fe_1
   - zlib=1.2.11=h516909a_1010
   - pip:
     - absl-py==0.12.0
@@ -50,9 +114,7 @@ dependencies:
     - bs4==0.0.1
     - cachetools==4.2.1
     - certifi==2020.6.20
-    - cffi==1.14.5
     - chardet==3.0.4
-    - click==7.1.2
     - decorator==5.0.7
     - ffmpeg-python==0.2.0
     - future==0.18.2
@@ -61,7 +123,6 @@ dependencies:
     - google-auth-oauthlib==0.4.4
     - google-pasta==0.2.0
     - googlesearch-python==2020.0.2
-    - grpcio==1.37.0
     - h11==0.12.0
     - h2==3.2.0
     - h5py==2.10.0
@@ -69,7 +130,6 @@ dependencies:
     - httpcore==0.12.3
     - httpx==0.16.1
     - hyperframe==5.2.0
-    - idna==2.10
     - joblib==1.0.1
     - keras-preprocessing==1.1.2
     - librosa==0.8.0
@@ -81,24 +141,17 @@ dependencies:
     - numpy==1.18.5
     - oauthlib==3.1.0
     - opt-einsum==3.3.0
-    - packaging==20.9
     - pandas==1.1.2
     - pooch==1.3.0
     - protobuf==3.15.8
-    - pyasn1==0.4.8
     - pyasn1-modules==0.2.8
-    - pycparser==2.20
-    - pyparsing==2.4.7
-    - python-dateutil==2.8.1
-    - pytz==2021.1
+    - pydub==0.25.1
     - requests==2.24.0
     - requests-oauthlib==1.3.0
     - resampy==0.2.2
     - rfc3986==1.4.0
-    - rsa==4.7.2
     - scikit-learn==0.24.1
     - scipy==1.4.1
-    - six==1.15.0
     - sniffio==1.2.0
     - soundfile==0.10.3.post1
     - soupsieve==2.0.1
@@ -110,7 +163,6 @@ dependencies:
     - tensorflow-estimator==2.3.0
     - termcolor==1.1.0
     - threadpoolctl==2.1.0
-    - typer==0.3.2
     - urllib3==1.25.9
     - werkzeug==1.0.1
     - wrapt==1.12.1
