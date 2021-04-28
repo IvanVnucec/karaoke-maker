@@ -6,7 +6,7 @@
             "type": "python",
             "request": "launch",
             "program": "karaoke-maker.py",
-            "args": ["welcome to the candy shop"],
+            "args": ["kafana je moja sudbina toma zdravkovic"],
             "console": "integratedTerminal"
         }
     ]

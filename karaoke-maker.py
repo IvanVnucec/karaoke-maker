@@ -1,6 +1,7 @@
 import sys
 from youtube import Youtube
 from filter import Filter
+from lyrics import Lyrics
 
 MIN_ARGS_LEN = 2
 OUTPUT_FOLDER_PATH = 'download'
@@ -26,6 +27,10 @@ def main(search):
     filter = Filter()
     path = filter.extract_vocals(filepath)
     print(f'Done. Saved to {path}.')
+
+    lyrics = Lyrics()
+    lyricsText = lyrics.get_lyrics(search)
+    lyrics.save(OUTPUT_FOLDER_PATH, lyricsText)  # TODO: Change output folder
 
     sys.exit(0)
 
