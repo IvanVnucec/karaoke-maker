@@ -1,8 +1,7 @@
 import os
 import shutil
 from subprocess import Popen, PIPE, STDOUT
-import numpy as np
-from scipy.io import wavfile
+from pydub import AudioSegment
 
 SPLIT_PROGRAM = 'spleeter separate -p spleeter:2stems'
 OUT_FOLDER = 'spleeter'
@@ -56,15 +55,22 @@ class Filter:
 
         return vocals, instrum
 
-    def mix_vocals_with_instrum(self, output_folder, vocals, instrum, intensity):
-        fs1, vocals_data = wavfile.read(vocals)
-        fs2, instrum_data = wavfile.read(instrum)
+    def mix_vocals_with_instrum(self, output_folder, vocals, instrum, gain=-12):
+        vocals_data = AudioSegment.from_wav(vocals)
+        instrum_data = AudioSegment.from_wav(instrum)
 
-        assert(fs1 == fs2)
+        # rename .wav to .mp3
+        vocalsMP3 = vocals.replace('.wav', '.mp3')
+        instrumMP3 = instrum.replace('.wav', '.mp3')
+        # convert .wav to .mp3 to reduce memory footprint
+        vocals_data.export(vocalsMP3, format="mp3")
+        instrum_data.export(instrumMP3, format="mp3")
 
-        result = (intensity) * vocals_data + (1.0 - intensity) * instrum_data
-        result = result / np.ndarray.max(result)
+        # mix vocals and instrumental and export is as blend.mp3
+        mix = vocals_data.overlay(instrum_data, gain_during_overlay=gain)
+        blend = os.path.join(output_folder, 'blend.mp3')
+        mix.export(blend, format='mp3')
 
-        output = os.path.join(output_folder, 'blend.wav')
-
-        wavfile.write(output, fs1, result)
+        # delete wav files
+        os.remove(vocals)
+        os.remove(instrum)
