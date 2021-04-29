@@ -10,24 +10,26 @@ DOWNLOAD_FOLDER = 'download'
 
 
 def main(search):
+    print('*** Searching for lyrics. ***')
+    ly = Lyrics()
+    lyrics = ly.get_lyrics(search)
+    if lyrics == []:
+        print("INFO: Could not found lyrics for your search.")
+        YT_search = search
+        lyric = None
+    else:
+        # get the first one of the list
+        lyric = lyrics[0]
+        YT_search = f'{lyric["author"]} {lyric["songName"]}'
+        print('Done.\n')
+
     # search youtube
-    print(f"*** Searching Youtube for '{search}'. ***")
+    print(f"*** Searching Youtube for '{YT_search}'. ***")
     youtube = Youtube()
-    songs = youtube.search(search, sortByViews=True)
-    print('Found:')
-
-    # pick one with the most views
-    for i, song in enumerate(songs, start=1):
-        print(f'{i}. {song["title"]} {song["views"]} {song["link"]}')
-
-    try:
-        pick = int(input('\nChoose one song frow the list: '))
-        if pick > len(songs):
-            exit()
-    except ValueError:
-        exit()
-
-    song = songs[pick - 1]
+    songs = youtube.search(YT_search, sortByViews=False)
+    # pick the first from the top of the list
+    song = songs[0]
+    print(f'Found {song["title"]}, {song["views"]} views, {song["link"]}\n')
 
     # download a song from youtube
     print('*** Downloading and converting to mp3. ***')
@@ -41,11 +43,10 @@ def main(search):
     filter.mix_vocals_with_instrum(folder, vocals, instrum)
     print(f'Done.\n')
 
-    print('*** Searching for lyrics. ***1')
-    lyrics = Lyrics()
-    lyricsText = lyrics.get_lyrics(search)
-    lyrics.save(folder, lyricsText)
-    print('Done.\n')
+    if lyric is not None:
+        print('*** Saving lyrics to file ***')
+        ly.save(folder, lyric)
+        print('Done saving lyrics to file.\n')
 
     absPath = os.path.abspath(folder)
     print(f'Output folder: {absPath}')

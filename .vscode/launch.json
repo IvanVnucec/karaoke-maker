@@ -6,7 +6,7 @@
             "type": "python",
             "request": "launch",
             "program": "karaoke-maker.py",
-            "args": ["kafana je moja sudbina toma zdravkovic"],
+            "args": ["kaj ima lima"],
             "console": "integratedTerminal"
         }
     ]

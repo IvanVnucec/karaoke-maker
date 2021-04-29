@@ -1,28 +1,10 @@
 import os
 import shutil
-from subprocess import Popen, PIPE, STDOUT
 from pydub import AudioSegment
+import subprocess
 
 SPLIT_PROGRAM = 'spleeter separate -p spleeter:2stems'
 OUT_FOLDER = 'spleeter'
-
-
-def syscmd(cmd, encoding=''):
-    """
-    Runs a command on the system, waits for the command to finish, and then
-    returns the text output of the command. If the command produces no text
-    output, the command's return code will be returned instead.
-    """
-    p = Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT,
-              close_fds=True)
-    p.wait()
-    output = p.stdout.read()
-    if len(output) > 1:
-        if encoding:
-            return output.decode(encoding)
-        else:
-            return output
-    return p.returncode
 
 
 class Filter:
@@ -30,7 +12,8 @@ class Filter:
         self.destDir = None
 
     def extract_vocals(self, songPath, destDir):
-        syscmd(f'{SPLIT_PROGRAM} -o {OUT_FOLDER} {songPath}')
+        subprocess.call(
+            f'{SPLIT_PROGRAM} -o {OUT_FOLDER} {songPath}', shell=True)
 
         # move spleeter output files to dst
         head_tail = os.path.split(songPath)
