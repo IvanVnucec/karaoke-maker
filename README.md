@@ -13,5 +13,4 @@ Below are few examples:
 - `python3 karaoke-maker.py dotako sam dno zivota sad verujem u sudbinu`
 - `python3 karaoke-maker.py thompson bojna cavoglave`.  
 
-Downloaded mp3 songs are saved in `download` folder and processed karaoke songs
-are saved in the `output folder`. 
+Karaoke songs are saved in the `downloads` folder.
