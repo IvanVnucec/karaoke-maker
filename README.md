@@ -13,4 +13,8 @@ Below are few examples:
 - `python3 karaoke-maker.py dotako sam dno zivota sad verujem u sudbinu`
 - `python3 karaoke-maker.py thompson bojna cavoglave`.  
 
+With `-v` or `--verbose` tag user can manually choose which lyrics or Youtube 
+song will be downloaded:
+- `python3 karaoke-maker.py -v nadji novu ljubav`
+
 Karaoke songs are saved in the `downloads` folder.
