@@ -14,9 +14,9 @@ def main(search, verbose):
     ly = Lyrics()
     lyrics = ly.get_lyrics(search)
     
+    YT_search = search
     if lyrics == []:
         print("INFO: Could not found lyrics for your search.")
-        YT_search = search
         lyric = None
     else:
         lyric = lyrics[0]
