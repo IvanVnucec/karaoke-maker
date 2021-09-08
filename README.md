@@ -3,7 +3,7 @@ App that will search and download a video from Youtube, search for lyrics, remov
 
 ## Installation
 1. Install Conda package manager.
-2. Create Conda environment from .yml file `conda env create --file environment.yml`
+2. Create Conda environment from .yml file `conda env create --file environment.yml --name karaoke-maker`
 3. Activate created environment.
 
 ## Instructions
