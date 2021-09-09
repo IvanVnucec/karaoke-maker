@@ -2,6 +2,7 @@
 App that will search and download a video from Youtube, search for lyrics, remove vocals from video and export it as mp3. Perfect for karaoke. :microphone:
 
 ## Installation
+Works only on Linux machines.
 1. Install Conda package manager.
 2. Create Conda environment from .yml file `conda env create --file environment.yml`
 3. Activate created environment.
